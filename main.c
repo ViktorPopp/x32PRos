@@ -85,8 +85,9 @@ void outportb(unsigned short port, unsigned char data)
  */
 int main()
 {
-  init_video();
-  puts("Hello world!\n");
-  for(;;);
-  return 0;
+        gdt_install();
+        init_video();
+        puts("Hello world!\n");
+        for(;;);
+        return 0;
 }
