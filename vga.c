@@ -30,7 +30,7 @@ void
 move_csr() {
 	unsigned temp;
 	temp = csr_y * 80 + csr_x;
-	
+
 	/*
 	 * Write stuff out.
 	 */
@@ -103,7 +103,7 @@ void puts(const char *text)
     int i;
     int len = strlen(text);
     for (i = 0; i < len; ++i) {
-        putch((unsigned char)text[i]); 
+        putch((unsigned char)text[i]);
     }
 }
 

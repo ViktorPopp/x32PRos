@@ -7,7 +7,7 @@ install: kernel
 	sudo cp kernel /mnt/kernel
 	sudo umount /mnt
 
-kernel: start.o link.ld main.o vga.o GDT.o
+kernel: start.o link.ld main.o vga.o GDT.o IDT.o
 	ld -m elf_i386 -T link.ld -o kernel *.o
 
 %.o: %.c
