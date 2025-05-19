@@ -6,7 +6,7 @@ Make a simple operating system, or at least try
 
 # Build instruction
 - Building
-```
+```sh
 git clone https://github.com/Kross1de/x32PRos.git
 cd x32PRos
 make
