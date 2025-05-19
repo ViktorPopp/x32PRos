@@ -2,16 +2,11 @@
 
 all: kernel
 
-install: kernel
-	sudo mount disk.img /mnt -o loop
-	sudo cp kernel /mnt/kernel
-	sudo umount /mnt
-
-kernel: start.o link.ld main.o vga.o GDT.o IDT.o isrs.o irq.o
+kernel: start.o link.ld main.o vga.o GDT.o IDT.o isrs.o irq.o timer.o
 	ld -m elf_i386 -T link.ld -o kernel *.o
 
 %.o: %.c
-	gcc -Wall -m32 -O -fstrength-reduce -fomit-frame-pointer -finline-functions -nostdinc -fno-builtin -fno-pic -ffreestanding -I./include -c -o $@ $<
+	gcc -Wall -m32 -O0 -fstrength-reduce -fomit-frame-pointer -finline-functions -nostdinc -fno-builtin -fno-pic -ffreestanding -I./include -c -o $@ $<
 
 start.o: start.asm
 	nasm -f elf -o start.o start.asm

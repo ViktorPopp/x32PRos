@@ -98,7 +98,7 @@ putch(
  * puts
  * Put string to screen
  */
-void puts(const char *text)
+void puts(char *text)
 {
     int i;
     int len = strlen(text);

@@ -71,7 +71,7 @@ isrs_install() {
     idt_set_gate(31, (unsigned)_isr31, 0x08, 0x8E);
 }
 
-const char *exception_messages[] = {
+char *exception_messages[] = {
     "division by zero",
     "debug",
     "non-maskable interrupt",
@@ -111,5 +111,7 @@ void fault_handler(struct regs *r) {
         puts(exception_messages[r->int_no]);
         puts(" exception. System halted.\n");
         for (;;);
+    } else {
+        puts("lolo butts\n");
     }
 }

@@ -1,3 +1,10 @@
+// main.c
+// Main file
+/*
+ * This file contains the kernel entry point 
+ * and also has functions that are used in other files.
+ */
+
 #include "include/kernel.h"
 
 /*
@@ -89,6 +96,8 @@ int main()
         idt_install();
         isrs_install();
         irq_install();
+        __asm__ __volatile__("sti");
+        timer_install();
         init_video();
         puts("Hello world!\n");
         for(;;);

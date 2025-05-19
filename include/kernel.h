@@ -13,7 +13,7 @@ extern void outportb(unsigned short port, unsigned char data);
 /* vga driver */
 extern void cls();
 extern void putch(unsigned char c);
-extern void puts(const char *str);
+extern void puts(char *str);
 extern void settextcolor(unsigned char forecolor, unsigned char backcolor);
 extern void init_video();
 
@@ -40,5 +40,10 @@ extern void isrs_install();
 extern void irq_install();
 extern void irq_install_handler(int irq, void *handler);
 extern void irq_uninstall_handler(int irq);
+
+/* Timer */
+extern void timer_install();
+extern int timer_ticks;
+extern void timer_wait(int ticks);
 
 #endif
