@@ -119,6 +119,16 @@ settextcolor(
 	attrib = (backcolor << 4) | (forecolor & 0x0F);
 }
 
+
+/*
+ * resettextcolor
+ * Reset the text color to white on black
+ */
+void
+resettextcolor() {
+        settextcolor(15,0);
+}
+
 /*
  * init_video
  * Initialize the VGA driver.

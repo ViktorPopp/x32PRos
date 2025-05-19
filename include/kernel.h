@@ -1,10 +1,17 @@
 #ifndef KERNEL_H
 #define KERNEL_H
 
+/* Types */
+
 #define NULL ((void *)0UL)
 
 typedef unsigned long uintptr_t;
 typedef long size_t;
+typedef unsigned int uint32;
+
+/* Unimportant Kernel Strings */
+#define KERNEL_UNAME "PRos"
+#define KERNEL_VERSION "0.0.1"
 
 /* kernel main */
 extern void *memcpy(void * restrict dest, const void * restrict src, size_t count);
@@ -20,6 +27,7 @@ extern void cls();
 extern void putch(unsigned char c);
 extern void puts(char *str);
 extern void settextcolor(unsigned char forecolor, unsigned char backcolor);
+extern void resettextcolor();
 extern void init_video();
 
 /* GDT */

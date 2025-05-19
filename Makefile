@@ -2,7 +2,7 @@ include Makefile.inc
 
 DIRS = core
 
-.PHONY: all clean core
+.PHONY: all clean core run
 
 kernel: start.o link.ld main.o core
 	${LD} -T link.ld -o kernel *.o core/*.o
@@ -12,6 +12,9 @@ kernel: start.o link.ld main.o core
 
 core:
 	cd core; ${MAKE} ${MFLAGS}
+
+run:
+	qemu-system-i386 -kernel kernel
 
 start.o: start.asm
 	nasm -f elf -o start.o start.asm
