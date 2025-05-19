@@ -30,11 +30,8 @@ unsigned short *memcpyw(unsigned short *dest, const unsigned short *src, int cou
  * memset
  * Set 'count' bytes to 'val'.
  */
-unsigned char *memset(unsigned char *dest, unsigned char val, int count)
-{
-    int i;
-    i = 0;
-    for (; i < count; ++i) {
+unsigned char *memset(unsigned char *dest, unsigned char val, int count) {
+    for (int i = 0; i < count; i++) {
         dest[i] = val;
     }
     return dest;
@@ -44,29 +41,24 @@ unsigned char *memset(unsigned char *dest, unsigned char val, int count)
  * memsetw
  * Set 'count' shorts to 'val'.
  */
-unsigned short *memsetw(unsigned short *dest, unsigned short val, int count)
-{
-  int i;
-  i = 0;
-  for ( ; i < count; ++i) {
-    dest[i] = val;
-  }
-  return dest;
+unsigned short *memsetw(unsigned short *dest, unsigned short val, int count) {
+    for (int i = 0; i < count; i++) {
+        dest[i] = val;
+    }
+    return dest;
 }
 
 /*
  * strlen
  * Returns the length of a given 'str'.
  */
-int strlen(const char *str)
-{
-  int i = 0;
-  while(str[i] != (char)0) {
-    ++i;
-  }
-  return i;
+int strlen(const char *str) {
+    int len = 0;
+    while (str[len]) {
+        len++;
+    }
+    return len;
 }
-
 /*
  * inportb
  * Read from an I/O port.

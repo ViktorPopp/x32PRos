@@ -1,4 +1,4 @@
-#include "include/kernel.h"
+#include "../include/kernel.h"
 
 /* Exception Handlers */
 extern void _isr0();
@@ -111,7 +111,5 @@ void fault_handler(struct regs *r) {
         puts(exception_messages[r->int_no]);
         puts(" exception. System halted.\n");
         for (;;);
-    } else {
-        puts("lolo butts\n");
-    }
+        }
 }

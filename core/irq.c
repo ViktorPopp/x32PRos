@@ -1,4 +1,4 @@
-#include "include/kernel.h"
+#include "../include/kernel.h"
 
 extern void _irq0();
 extern void _irq1();

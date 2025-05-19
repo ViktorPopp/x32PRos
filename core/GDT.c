@@ -1,4 +1,4 @@
-#include "include/kernel.h"
+#include "../include/kernel.h"
 
 /*
  * GDT (Global Descriptor Table) Entry

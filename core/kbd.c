@@ -1,4 +1,4 @@
-#include "include/kernel.h"
+#include "../include/kernel.h"
 
 char kbd[128] = {
 	0, 27,

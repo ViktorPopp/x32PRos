@@ -1,15 +1,21 @@
-.PHONY: all clean install
+include Makefile.inc
 
-all: kernel
+DIRS = core
 
-kernel: start.o link.ld main.o vga.o GDT.o IDT.o isrs.o irq.o timer.o kbd.o kprintf.o
-	ld -m elf_i386 -T link.ld -o kernel *.o
+.PHONY: all clean core
+
+kernel: start.o link.ld main.o core
+	${LD} -T link.ld -o kernel *.o core/*.o
 
 %.o: %.c
-	gcc -Wall -m32 -O0 -fstrength-reduce -fomit-frame-pointer -finline-functions -nostdinc -fno-builtin -fno-pic -ffreestanding -I./include -c -o $@ $<
+	${CC} ${CFLAGS} -c -o $@ $<
+
+core:
+	cd core; ${MAKE} ${MFLAGS}
 
 start.o: start.asm
 	nasm -f elf -o start.o start.asm
 
 clean:
-	rm -f *.o kernel
+	-rm -f *.o kernel
+	-for d in ${DIRS}; do (cd $$d; ${MAKE} clean); done
