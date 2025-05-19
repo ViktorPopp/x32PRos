@@ -97,7 +97,8 @@ int main()
         isrs_install();
         irq_install();
         __asm__ __volatile__("sti");
-        timer_install();
+        //timer_install();
+        keyboardInstall();
         init_video();
         puts("Hello world!\n");
         for(;;);
