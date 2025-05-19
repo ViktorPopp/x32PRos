@@ -2,7 +2,7 @@
 
 all: kernel
 
-kernel: start.o link.ld main.o vga.o GDT.o IDT.o isrs.o irq.o timer.o kbd.o
+kernel: start.o link.ld main.o vga.o GDT.o IDT.o isrs.o irq.o timer.o kbd.o kprintf.o
 	ld -m elf_i386 -T link.ld -o kernel *.o
 
 %.o: %.c

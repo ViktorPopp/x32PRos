@@ -50,4 +50,7 @@ extern void timer_wait(int ticks);
 extern void keyboardInstall();
 extern void keyboard_wait();
 
+/* kprintf */
+extern void kprintf(const char *fmt, ...);
+
 #endif

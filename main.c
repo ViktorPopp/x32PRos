@@ -92,6 +92,7 @@ void outportb(unsigned short port, unsigned char data)
  */
 int main()
 {
+        int i = 1;
         gdt_install();
         idt_install();
         isrs_install();
@@ -101,6 +102,7 @@ int main()
         keyboardInstall();
         init_video();
         puts("Hello world!\n");
+        kprintf("number: %d", i);
         for(;;);
         return 0;
 }
