@@ -12,11 +12,19 @@
  * Copy from source to destination. Assumes that
  * source and destination are not overlapping.
  */
-unsigned short *memcpy(unsigned short *dest, const unsigned short *src, int count) {
-    for (int i = 0; i < count; i++) {
-        dest[i] = src[i];
-    }
-    return dest;
+void *
+memcpy(
+		void * restrict dest,
+		const void * restrict src,
+		size_t count
+	  ) {
+	size_t i;
+	unsigned char *a = dest;
+	const unsigned char *b = src;
+	for ( i = 0; i < count; ++i ) {
+		a[i] = b[i];
+	}
+	return dest;
 }
 
 unsigned short *memcpyw(unsigned short *dest, const unsigned short *src, int count) {
@@ -30,22 +38,36 @@ unsigned short *memcpyw(unsigned short *dest, const unsigned short *src, int cou
  * memset
  * Set 'count' bytes to 'val'.
  */
-unsigned char *memset(unsigned char *dest, unsigned char val, int count) {
-    for (int i = 0; i < count; i++) {
-        dest[i] = val;
-    }
-    return dest;
+void *
+memset(
+		void *b,
+		int val,
+		size_t count
+	  ) {
+	size_t i;
+	unsigned char * dest = b;
+	for ( i = 0; i < count; ++i ) {
+		dest[i] = (unsigned char)val;
+	}
+	return b;
 }
 
 /*
  * memsetw
  * Set 'count' shorts to 'val'.
  */
-unsigned short *memsetw(unsigned short *dest, unsigned short val, int count) {
-    for (int i = 0; i < count; i++) {
-        dest[i] = val;
-    }
-    return dest;
+unsigned short *
+memsetw(
+		unsigned short *dest,
+		unsigned short val,
+		int count
+	  ) {
+	int i;
+	i = 0;
+	for ( ; i < count; ++i ) {
+		dest[i] = val;
+	}
+	return dest;
 }
 
 /*
