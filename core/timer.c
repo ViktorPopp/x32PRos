@@ -14,9 +14,7 @@ long timer_ticks = 0;
 unsigned long ticker = 0;
 
 void
-timer_handler(
-        struct regs *r
-) {
+timer_handler() {
         ++timer_ticks;
         if (timer_ticks % 18 == 0) {
                 ticker++;

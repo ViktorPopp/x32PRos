@@ -40,9 +40,7 @@ char kbd[128] = {
 };
 
 void
-keyboard_handler(
-        struct regs *r
-) {
+keyboard_handler() {
         unsigned char scancode;
         scancode = inportb(0x60);
         if (scancode & 0x80) {
